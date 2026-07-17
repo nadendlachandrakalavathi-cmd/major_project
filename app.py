@@ -31,29 +31,19 @@ with col1:
 
     delinquency_history = st.number_input("Delinquency History", min_value=0,value=0)
 
-    education_level = st.selectbox(
-        "Education Level",
-        ["Bachelor","High School","Master","other","PhD"]
-    )
-
-    employment_status = st.selectbox(
-        "Employment Status",
-        ["Employed", "Unemployed", "Self-employed",""]
-    )
-
     debt_to_income_ratio = st.number_input(
         "Debt to Income Ratio",
         min_value=0.0,
         max_value=100.0,
         value=20.0
     )
-with col2:
     credit_score = st.number_input(
         "Credit Score",
         min_value=300,
         max_value=900,
         value=700
     )
+with col2:
     monthly_income = st.number_input(
         "Monthly Income",
         min_value=0,
@@ -72,12 +62,6 @@ with col2:
         value=500
     )
 
-    grade_subgrade = st.number_input(
-        "Grade Subgrade",
-        min_value=0,
-        value=1
-    )
-
     total_credit_limit = st.number_input(
         "Total Credit Limit",
         min_value=0,
@@ -89,21 +73,6 @@ with col2:
         min_value=0,
         value=10000
     )
-#Encoding
-education_map={ 
-    "Bachelor":0,
-    "High School":1,
-    "Master":2, 
-    "other":3,
-    "PhD":4
-  }
-emp_map = {
-        "Employed": 0,
-        "Retired":1,
-        "Self-employed":2,
-        "student":3,
-        "Unemployed": 4
-    }
 #Preduction button
 if st.button("🔍Predict",use_container_width=True,type="primary"):
     # Convert employment status to the same numeric values used in training.
@@ -114,12 +83,9 @@ if st.button("🔍Predict",use_container_width=True,type="primary"):
     "interest_rate": [interest_rate],
     "installment": [installment],
     "annual_income": [annual_income],
-    "grade_subgrade": [grade_subgrade],
     "total_credit_limit": [total_credit_limit],
     "current_balance": [current_balance],
     "delinquency_history": [delinquency_history],
-    "education_level": [education_map[education_level]],
-    "employment_status": [emp_map[employment_status]],
     "debt_to_income_ratio": [debt_to_income_ratio],
     "credit_score": [credit_score],
     "loan_amount": [loan_amount]

@@ -1,14 +1,28 @@
 import streamlit as st
 import joblib
 import pandas as pd
-
+st.set_page_config(
+    page_title="Bank Loan Repayment Analysis and Customer Risk Assessment",
+    page_icon="favicon.ico",
+    layout="wide"
+)
+st.markdown("""
+<h1 style='text-align:center;color:#1E88E5;'>Bank Loan Repayment Analysis and Customer Risk Assessment</h>
+<h4 style='text-align:center;color:gray;'> Customer Risk Assessment using Machine Learning</h4>""",unsafe_allow_html=True)
+st.sidebar.title("Loan Preduction")
+st.sidebar.info(
+    """
+    Enter the Customer details.
+    Click Predict to check weather the customer is likely to repay the loan.
+    """
+)
 # Load the trained model
 model = joblib.load("loan_model.pkl")
 
-st.title("Bank Loan Repayment Analysis and Customer Risk Assessment")
-
 st.write("Enter customer details below:")
 #input fields
+col1,col2=st.columns(2)
+with col1:
 age = st.number_input("Age", min_value=18, max_value=100,value=25)
 
 annual_income = st.number_input("Annual Income", min_value=0,value=50000)
@@ -33,7 +47,7 @@ debt_to_income_ratio = st.number_input(
     max_value=100.0,
     value=20.0
 )
-
+with col2:
 credit_score = st.number_input(
     "Credit Score",
     min_value=300,
@@ -91,7 +105,7 @@ emp_map = {
         "Retired":1
     }
 #Preduction button
-if st.button("Predict"):
+if st.button("Predict",use_container_width=True,type="primary"):
     # Convert employment status to the same numeric values used in training.
     # IMPORTANT: Change these mappings if your notebook used different encoding.
     input_data = pd.DataFrame({
@@ -113,6 +127,10 @@ if st.button("Predict"):
     prediction = model.predict(input_data)
 
     if prediction[0] == 1:
-        st.success("Low Risk - Loan likely to be repaid.")
+        st.success(" low risk- Loan likely to be repaid.")
     else:
         st.error("High Risk - Loan repayment risk detected.")
+st.markdown("---")
+st.markdown(
+    "<center>Developed using python.Streamlit.Machine Learning</center>",unsafe_allow_html=True
+)

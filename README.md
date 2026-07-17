@@ -1,95 +1,140 @@
-Bank Loan Repayment Analysis and Customer Risk Assessment Using Machine Learning
+# 🏦 Bank Loan Repayment Analysis and Customer Risk Assessment
 
-Project Overview
+## 📌 Project Overview
 
-This project analyzes customer loan repayment behavior and predicts the risk of loan default using Machine Learning techniques. The objective is to help financial institutions make informed lending decisions by identifying key factors that influence loan repayment.
+This project predicts whether a customer is likely to be a **Low Risk** or **High Risk** borrower based on financial information. A Machine Learning model is trained using historical loan data, and a Streamlit web application allows users to enter customer details and receive a prediction.
 
-Problem Statement
-
+---
+## Problem Statement
 Develop a machine learning model to analyze customer loan repayment behavior and assess the risk of loan default, helping financial institutions make informed lending decisions.
 
-Dataset
+## 🚀 Features
 
-- Dataset Name: Loan Dataset
-- Records: 20,000+
-- Features:
-  - Credit Score
-  - Annual Income
-  - Monthly Income
-  - Loan Amount
-  - Debt-to-Income Ratio
-  - Employment Status
-  - Loan Purpose
-  - Interest Rate
-  - Loan Repayment Status
+- Predict customer loan repayment risk
+- Interactive Streamlit web application
+- Real-time prediction
+- User-friendly interface
+- Machine Learning-based classification
 
-Technologies Used
+---
+
+## 🛠️ Technologies Used
 
 - Python
 - Pandas
 - NumPy
-- Matplotlib
-- Seaborn
 - Scikit-learn
+- Streamlit
+- Joblib
+- powerBI
 - MySQL
-- Power BI
-- GitHub
 
-Project Workflow
+---
 
-1. Problem Statement & Dataset Selection
-2. Data Cleaning & Preprocessing
-3. Exploratory Data Analysis (EDA)
-4. SQL Analysis
-5. Statistical Insights
-6. Visual Storytelling
-7. Machine Learning Model Development
-8. Power BI Dashboard Creation
-9. Insight Documentation
-10. Project Presentation
+## 📂 Project Structure
 
-Machine Learning Model
+```
+Bank-Loan-Risk-Prediction/
 
-Algorithm Used:
+ >>> app.py
+ >>> loan_model.pkl
+ >>> requirements.txt
+ >>> README.md
+ >>> ml_customer_Risk_prediction.ipynb
+ >>> data_cleaning.ipynb
+ >>> loan_eda_analysis.ipynb
+ >>> loan_analysis.py
+ >>> bank_loan_SQL_analysis.sql
+ >>> cleaned_loan_dataset.csv
+ >>> statical_insights.ipynb
+ >>> visual_stories.ipynb
+ >>> powerBI_Dashboard.pbix
 
-- Random Forest Classifier
 
-Evaluation Metrics:
+```
+## Project Workflow
 
-- Accuracy Score
-- Confusion Matrix
-- Classification Report
-- Feature Importance Analysis
+   1. Problem Statement & Dataset Selection
+   2. Data Cleaning & Preprocessing
+   3. Exploratory Data Analysis (EDA)
+   4. SQL Analysis
+   5. Statistical Insights
+   6. Visual Storytelling
+   7. Machine Learning Model Development
+   8. Power BI Dashboard Creation
+   9. Insight Documentation
+  10. Project Presentation
+---
 
-Key Findings
+## 📊 Input Features
 
-- Employment Status was the most important predictor of loan repayment.
-- Debt-to-Income Ratio significantly influenced customer risk.
-- Credit Score played a major role in repayment behavior.
-- Customers with higher credit scores showed better repayment performance.
+The application uses the following features:
 
-Dashboard Features
+- Age
+- Monthly Income
+- Annual Income
+- Loan Amount
+- Interest Rate
+- Installment
+- Total Credit Limit
+- Current Balance
+- Delinquency History
+- Debt-to-Income Ratio
+- Credit Score
 
-- Total Customers KPI
-- Average Income KPI
-- Average Credit Score KPI
-- Average Loan Amount KPI
-- Repayment Rate KPI
-- Risk Distribution Analysis
-- Loan Purpose Analysis
-- Customer Risk Assessment
+---
 
-Business Recommendations
+## 🤖 Machine Learning Model
 
-- Strengthen credit score evaluation during loan approval.
-- Monitor customers with high debt-to-income ratios.
-- Consider employment stability before approving loans.
-- Use machine learning-based risk assessment for lending decisions.
+- Algorithm: Random Forest Classifier
+- Train-Test Split: 80% Training, 20% Testing
+- Model Serialization: Joblib
 
-Conclusion
+---
 
-This project successfully analyzed loan repayment behavior, identified important risk factors, and developed a machine learning model to support better lending decisions. The Power BI dashboard provides interactive insights for business users.
+## ▶️ Run the Project
 
-Author
+Install the required libraries:
 
-Chandrakalavathi Nadendla
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit application:
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📈 Output
+
+The application predicts whether the customer is:
+
+- ✅ Low Risk
+- ⚠️ High Risk
+
+---
+
+## 🎯 Future Improvements
+
+- Probability score for predictions
+- Loan approval recommendation
+- Interactive charts and dashboards
+- Cloud deployment
+- Model performance monitoring
+
+---
+
+## 👨‍💻 Author
+
+NADENDLA CHANDRA KALAVATHI
+
+BSc Computer Science Student
+Andhra Loyola College
+
+---
+
+## 📄 License
+This project is developed for educational and academic purposes.Bank Loan Repayment Analysis and Customer Risk Assessment Using Machine Learning.

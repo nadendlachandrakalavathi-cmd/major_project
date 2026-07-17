@@ -33,12 +33,12 @@ with col1:
 
     education_level = st.selectbox(
         "Education Level",
-        ["High School", "Bachelor", "Master", "PhD"]
+        ["Bachelor","High School","Master","other","PhD"]
     )
 
     employment_status = st.selectbox(
         "Employment Status",
-        ["Employed", "Self-employed", "Unemployed"]
+        ["Employed", "Unemployed", "Self-employed",""]
     )
 
     debt_to_income_ratio = st.number_input(
@@ -90,19 +90,19 @@ with col2:
         value=10000
     )
 #Encoding
-education_map={
-    "High School":1,
+education_map={ 
     "Bachelor":0,
-    "Master":2,
-    "PhD":4,
-    "other":3
+    "High School":1,
+    "Master":2, 
+    "other":3,
+    "PhD":4
   }
 emp_map = {
         "Employed": 0,
-        "Self-employed": 2,
-        "Unemployed": 4,
-        "student":3,
         "Retired":1
+        "Self-employed":2,
+        "student":3,
+        "Unemployed": 4
     }
 #Preduction button
 if st.button("🔍Predict",use_container_width=True,type="primary"):

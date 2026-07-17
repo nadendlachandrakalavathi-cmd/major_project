@@ -3,13 +3,13 @@ import joblib
 import pandas as pd
 st.set_page_config(
     page_title="Bank Loan Repayment Analysis and Customer Risk Assessment",
-    page_icon="favicon.ico",
+    page_icon="🏦",
     layout="wide"
 )
 st.markdown("""
-<h1 style='text-align:center;color:#1E88E5;'>Bank Loan Repayment Analysis and Customer Risk Assessment</h>
+<h1 style='text-align:center;color:#1E88E5;'>🏦Bank Loan Repayment Analysis and Customer Risk Assessment</h>
 <h4 style='text-align:center;color:gray;'> Customer Risk Assessment using Machine Learning</h4>""",unsafe_allow_html=True)
-st.sidebar.title("Loan Preduction")
+st.sidebar.title("🗒️Loan Preduction")
 st.sidebar.info(
     """
     Enter the Customer details.
@@ -32,8 +32,8 @@ with col1:
     delinquency_history = st.number_input("Delinquency History", min_value=0,value=0)
 
     education_level = st.selectbox(
-    "Education Level",
-    ["High School", "Bachelor", "Master", "PhD"]
+        "Education Level",
+        ["High School", "Bachelor", "Master", "PhD"]
     )
 
     employment_status = st.selectbox(
@@ -105,7 +105,7 @@ emp_map = {
         "Retired":1
     }
 #Preduction button
-if st.button("Predict",use_container_width=True,type="primary"):
+if st.button("🔍Predict",use_container_width=True,type="primary"):
     # Convert employment status to the same numeric values used in training.
     # IMPORTANT: Change these mappings if your notebook used different encoding.
     input_data = pd.DataFrame({
@@ -127,9 +127,9 @@ if st.button("Predict",use_container_width=True,type="primary"):
     prediction = model.predict(input_data)
 
     if prediction[0] == 1:
-        st.success(" low risk- Loan likely to be repaid.")
+        st.success(" ✅- Loan likely to be repaid.")
     else:
-        st.error("High Risk - Loan repayment risk detected.")
+        st.error(" ❌- Loan repayment risk detected.")
 st.markdown("---")
 st.markdown(
     "<center>Developed using python.Streamlit.Machine Learning</center>",unsafe_allow_html=True

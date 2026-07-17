@@ -99,7 +99,7 @@ education_map={
   }
 emp_map = {
         "Employed": 0,
-        "Retired":1
+        "Retired":1,
         "Self-employed":2,
         "student":3,
         "Unemployed": 4

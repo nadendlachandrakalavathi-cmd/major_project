@@ -30,7 +30,7 @@ with col1:
     "Female",
     "Other"]
     )
-    marital_ststus=st.selectbox(
+    marital_status=st.selectbox(
          "Marital Status", 
         ["Single",
         "Married",
@@ -38,7 +38,7 @@ with col1:
         "Widowed"]
     )
     education_level=st.selectbox(
-        "Education Level",
+         "Education Level",
         [
         "High School",
         "Bachelor's",
@@ -121,11 +121,10 @@ with col3:
         "E1", "E2", "E3", "E4", "E5",
         "F1", "F2", "F3", "F4", "F5"]
     )
+# Predict button
+if st.button("🔍 Predict", use_container_width=True, type="primary"):
 
-#Preduction button
-if st.button("🔍Predict",use_container_width=True,type="primary"):
-    # Convert employment status to the same numeric values used in training.
-    # IMPORTANT: Change these mappings if your notebook used different encoding.
+    # Encoding dictionaries
     gender_map = {
         "Male": 0,
         "Female": 1,
@@ -175,32 +174,42 @@ if st.button("🔍Predict",use_container_width=True,type="primary"):
         "F1":25, "F2":26, "F3":27, "F4":28, "F5":29
     }
 
-input_data = pd.DataFrame({
-    "age": [age],
-    "monthly_income": [monthly_income],
-    "interest_rate": [interest_rate],
-    "installment": [installment],
-    "annual_income": [annual_income],
-    "total_credit_limit": [total_credit_limit],
-    "current_balance": [current_balance],
-    "delinquency_history": [delinquency_history],
-    "debt_to_income_ratio": [debt_to_income_ratio],
-    "credit_score": [credit_score],
-    "loan_amount": [loan_amount],
-    "education_level": [education_map[education_level]],
-    "employment_status": [employment_map[employment_status]],
-    "marital_status": [marital_map[marital_ststus]],
-    "loan_purpose": [loan_purpose_map[loan_purpose]],
-    "gender": [gender_map[gender]],
-    "grade_subgrade": [grade_map[grade_subgrade]]
-})
-prediction = model.predict(input_data)
+    # Create input data in the SAME ORDER used during training
+    input_data = pd.DataFrame({
+        "age": [age],
+        "monthly_income": [monthly_income],
+        "interest_rate": [interest_rate],
+        "installment": [installment],
+        "annual_income": [annual_income],
+        "total_credit_limit": [total_credit_limit],
+        "current_balance": [current_balance],
+        "delinquency_history": [delinquency_history],
+        "debt_to_income_ratio": [debt_to_income_ratio],
+        "credit_score": [credit_score],
+        "loan_amount": [loan_amount],
+        "education_level": [education_map[education_level]],
+        "employment_status": [employment_map[employment_status]],
+        "marital_status": [marital_map[marital_status]],
+        "loan_purpose": [loan_purpose_map[loan_purpose]],
+        "gender": [gender_map[gender]],
+        "grade_subgrade": [grade_map[grade_subgrade]]
+    })
 
-if prediction[0] == 1:
-        st.success(" ✅- Loan likely to be repaid.")
-else:
-        st.error(" ❌- Loan repayment risk detected.")
-st.markdown("---")
-st.markdown(
-    "<center>Developed using python.Streamlit.Machine Learning</center>",unsafe_allow_html=True
-)
+    # Make prediction
+    prediction = model.predict(input_data)
+
+    # Display result
+    if prediction[0] == 1:
+        st.success("✅ Loan is likely to be repaid.")
+    else:
+        st.error("❌ High risk: Loan may not be repaid.")
+
+    # Display prediction probability (if supported by the model)
+    if hasattr(model, "predict_proba"):
+        probability = model.predict_proba(input_data)[0]
+
+        st.write("### Prediction Probability")
+        st.write(f"**Loan Not Repaid:** {probability[0]*100:.2f}%")
+        st.write(f"**Loan Repaid:** {probability[1]*100:.2f}%")
+
+        st.progress(float(probability[1]))

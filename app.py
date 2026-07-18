@@ -39,7 +39,7 @@ with col1:
     )
     education_level=st.selectbox(
          "Education Level",
-        ["Education Level",
+        [
         "High School",
         "Bachelor's",
         "Master's",

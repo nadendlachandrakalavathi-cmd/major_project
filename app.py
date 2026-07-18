@@ -139,7 +139,7 @@ if st.button("🔍Predict",use_container_width=True,type="primary"):
         "Widowed": 3
     }
 
-    education_map = {
+    education_level_map = {
         "High School": 0,
         "Bachelor's": 1,
         "Master's": 2,
@@ -187,7 +187,7 @@ input_data = pd.DataFrame({
     "debt_to_income_ratio": [debt_to_income_ratio],
     "credit_score": [credit_score],
     "loan_amount": [loan_amount],
-    "education_level": [education_map[education_level]],
+    "education_level": [education_level_map[education_level]],
     "employment_status": [employment_map[employment_status]],
     "marital_status": [marital_map[marital_ststus]],
     "loan_purpose": [loan_purpose_map[loan_purpose]],

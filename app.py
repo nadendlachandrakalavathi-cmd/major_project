@@ -38,7 +38,7 @@ with col1:
         "Widowed"]
     )
     education_level=st.selectbox(
-         "Education Level",
+        "Education Level",
         [
         "High School",
         "Bachelor's",
@@ -187,12 +187,12 @@ input_data = pd.DataFrame({
     "debt_to_income_ratio": [debt_to_income_ratio],
     "credit_score": [credit_score],
     "loan_amount": [loan_amount],
-    "education_level": [education_level_map[education_level]],
-    "employment_status": [employment_map[employment_status]],
-    "marital_status": [marital_map[marital_ststus]],
-    "loan_purpose": [loan_purpose_map[loan_purpose]],
-    "gender": [gender_map[gender]],
-    "grade_subgrade": [grade_map[grade_subgrade]]
+    "education_level": [education_level_map],
+    "employment_status": [employment_map],
+    "marital_status": [marital_map],
+    "loan_purpose": [loan_purpose_map],
+    "gender": [gender_map],
+    "grade_subgrade": [grade_map]
 })
 prediction = model.predict(input_data)
 

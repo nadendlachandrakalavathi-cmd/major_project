@@ -199,7 +199,7 @@ if st.button("🔍 Predict", use_container_width=True, type="primary"):
     prediction = model.predict(input_data)
 
     # Display result
-    if prediction[1] == 0:
+    if prediction[0] == 1:
         st.success("✅ Loan is likely to be repaid.")
     else:
         st.error("❌ High risk: Loan may not be repaid.")

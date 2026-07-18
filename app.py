@@ -25,17 +25,20 @@ col1,col2,col3=st.columns(3)
 with col1:
     age = st.number_input("Age", min_value=18, max_value=100,value=25)
     gender=st.selectbox(
+         "Gender",
         ["Male",
     "Female",
     "Other"]
     )
     marital_ststus=st.selectbox(
+         "Marital Status", 
         ["Single",
         "Married",
         "Divorced",
         "Widowed"]
     )
     education_level=st.selectbox(
+         "Education Level",
         ["Education Level",
         "High School",
         "Bachelor's",
@@ -44,6 +47,7 @@ with col1:
         "Other"]
     )   
     employment_status = st.selectbox(
+         "Employment Status",
         ["Employed",
         "Self-employed",
         "Student",
@@ -97,6 +101,7 @@ with col3:
     )
     
     loan_purpose= st.selectbox(
+         "Loan Purpose",
         ["Car",
         "Debt consolidation",
         "Business",
@@ -108,6 +113,7 @@ with col3:
     )
     
     grade_subgrade =st.selectbox(
+         "Grade Subgrade",
         ["A1", "A2", "A3", "A4", "A5",
         "B1", "B2", "B3", "B4", "B5",
         "C1", "C2", "C3", "C4", "C5",

@@ -177,22 +177,22 @@ if st.button("🔍Predict",use_container_width=True,type="primary"):
 
 input_data = pd.DataFrame({
     "age": [age],
-    "gender":[gender],
-    "marital_status":[marital_ststus],
-    "education_level":[education_level],
-    "employment_status":[employment_status],
     "monthly_income": [monthly_income],
+    "interest_rate": [interest_rate],
+    "installment": [installment],
     "annual_income": [annual_income],
+    "total_credit_limit": [total_credit_limit],
     "current_balance": [current_balance],
     "delinquency_history": [delinquency_history],
     "debt_to_income_ratio": [debt_to_income_ratio],
-    "interest_rate": [interest_rate],
-    "total_credit_limit": [total_credit_limit],
     "credit_score": [credit_score],
-    "installment": [installment],
     "loan_amount": [loan_amount],
-    "loan_purpose":[loan_purpose],
-    "grade_subgrade":[grade_subgrade]
+    "education_level": [education_map[education_level]],
+    "employment_status": [employment_map[employment_status]],
+    "marital_status": [marital_map[marital_ststus]],
+    "loan_purpose": [loan_purpose_map[loan_purpose]],
+    "gender": [gender_map[gender]],
+    "grade_subgrade": [grade_map[grade_subgrade]]
 })
 prediction = model.predict(input_data)
 
